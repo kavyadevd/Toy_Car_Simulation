@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="toy_car_3">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0953137510067839 0 -0.101443848109706"
+        rpy="0 0 0" />
+      <mass
+        value="90.4863171622024" />
+      <inertia
+        ixx="2.31734101461935"
+        ixy="9.40606923907818E-17"
+        ixz="0.534422646160281"
+        iyy="7.29012414676684"
+        iyz="8.33231985741877E-18"
+        izz="8.86465995750526" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://toy_car_3/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://toy_car_3/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="BR_coord">
+    <inertial>
+      <origin
+        xyz="-1.1102E-16 0.047495 -1.4572E-16"
+        rpy="0 0 0" />
+      <mass
+        value="2.8186" />
+      <inertia
+        ixx="0.009636"
+        ixy="7.9039E-20"
+        ixz="7.1367E-20"
+        iyy="0.013006"
+        iyz="9.4932E-19"
+        izz="0.009636" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://toy_car_3/meshes/BR_coord.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://toy_car_3/meshes/BR_coord.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BR_coord"
+    type="continuous">
+    <origin
+      xyz="-0.20624 -0.3302 -0.14111"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="BR_coord" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="1"
+      velocity="1" />
+  </joint>
+  <link
+    name="BL_wheel">
+    <inertial>
+      <origin
+        xyz="-1.1102E-16 -0.047495 6.9389E-18"
+        rpy="0 0 0" />
+      <mass
+        value="2.8186" />
+      <inertia
+        ixx="0.009636"
+        ixy="2.8579E-19"
+        ixz="-2.5413E-35"
+        iyy="0.013006"
+        iyz="-2.2429E-35"
+        izz="0.009636" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://toy_car_3/meshes/BL_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://toy_car_3/meshes/BL_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BL_joint"
+    type="continuous">
+    <origin
+      xyz="-0.20624 0.3302 -0.14111"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="BL_wheel" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="1"
+      velocity="1" />
+  </joint>
+  <link
+    name="FL_wheel">
+    <inertial>
+      <origin
+        xyz="0 -0.047495 6.9389E-18"
+        rpy="0 0 0" />
+      <mass
+        value="2.8186" />
+      <inertia
+        ixx="0.009636"
+        ixy="2.8579E-19"
+        ixz="-2.5413E-35"
+        iyy="0.013006"
+        iyz="-2.2429E-35"
+        izz="0.009636" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://toy_car_3/meshes/FL_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://toy_car_3/meshes/FL_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_joint"
+    type="continuous">
+    <origin
+      xyz="0.30176 0.3302 -0.14111"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="FL_wheel" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="1"
+      velocity="1" />
+  </joint>
+  <link
+    name="FR_wheel">
+   <inertial>
+      <origin
+        xyz="-1.3878E-17 0.047495 6.9389E-18"
+        rpy="0 0 0" />
+      <mass
+        value="2.8186" />
+      <inertia
+        ixx="0.009636"
+        ixy="2.8528E-19"
+        ixz="-1.0318E-18"
+        iyy="0.013006"
+        iyz="-1.2618E-19"
+        izz="0.009636" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://toy_car_3/meshes/FR_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://toy_car_3/meshes/FR_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FR_joint"
+    type="continuous">
+    <origin
+      xyz="0.30176 -0.3302 -0.14111"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="FR_wheel" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="1"
+      velocity="1" />
+  </joint>
+
+
+
+<gazebo reference="base_link">
+      <material>Gazebo/Red</material>
+</gazebo>
+</robot>
