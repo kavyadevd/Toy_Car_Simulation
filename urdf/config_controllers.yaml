@@ -1,0 +1,20 @@
+# Robot name goes here
+robot_name: # change the name
+  # default controller
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Controller 1
+  controller_1_name: # change the name
+    type: # Type of controller. 
+    joint: # Name of the joint.  
+    pid : # Enter your pid values eg. {p: 100.0 , i: 0.0 , d: 0.0} 
+
+  # Controller 2
+  # Controller 3
+  # ....
+  # Controller n
+
+
+ 
