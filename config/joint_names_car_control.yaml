@@ -1,0 +1,29 @@
+# Robot name goes here
+car_control: # change the name
+  # default controller
+  joint_state_controller: 
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Controller 1
+  joint_right_controller: # change the name
+    type: effort_controllers/JointVelocityController # Type of controller. 
+    joint: FR_joint # Name of the joint. 
+    pid: { p: 100.0, i: 0.1, d: 0.01}
+
+  # Controller 1
+  joint_left_controller: # change the name
+    type: effort_controllers/JointVelocityController # Type of controller.
+    joint: FL_joint 
+    pid: { p: 100.0, i: 0.1, d: 0.01}
+
+  joint_back_left_controller: # change the name
+    type: effort_controllers/JointVelocityController # Type of controller.
+    joint: BL_joint 
+    pid: { p: 100.0, i: 0.1, d: 0.01}
+
+  joint_back_right_controller: # change the name
+    type: effort_controllers/JointVelocityController # Type of controller.
+    joint: BR_joint 
+    pid: { p: 100.0, i: 0.1, d: 0.01}
+

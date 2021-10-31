@@ -3,13 +3,11 @@
     name="model" />
   <param
     name="robot_description"
-    textfile="$(find toy_car_3)/urdf/662_ToyCar.urdf" />
+    textfile="$(find car_control)/urdf/car_control.urdf" />
   <node
-    name="joint_state_publisher"
-    pkg="joint_state_publisher"
-    type="joint_state_publisher"
-output="screen" />
-
+    name="joint_state_publisher_gui"
+    pkg="joint_state_publisher_gui"
+    type="joint_state_publisher_gui" />
   <node
     name="robot_state_publisher"
     pkg="robot_state_publisher"
@@ -18,6 +16,5 @@ output="screen" />
     name="rviz"
     pkg="rviz"
     type="rviz"
-	output="screen" />
-    <!--args="-d $(find toy_car_3)/urdf.rviz" /> -->
+    args="-d $(find car_control)/urdf.rviz" />
 </launch>
