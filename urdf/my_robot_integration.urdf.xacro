@@ -1,4 +1,15 @@
-<gazebo reference="base_laser">
+<?xml version="1.0"?>
+<!-- Name your robot here -->
+<robot name ="car_control" xmlns:xacro="http://wiki.ros.org/xacro">
+
+<!-- Include your urdf files here -->
+	<!-- Include Robot's urdf filepath -->
+	<!-- Include Lidar's urdf filepath -->
+	<xacro:include filename="car_control.urdf"/>
+	<xacro:include filename="ydlidar.urdf"/>
+
+<!-- Add your gazebo sensors here -->
+	<gazebo reference="base_laser">
 		<!-- <gravity>true</gravity> -->
 		<!-- Gazebo has fixed set of Sensors types. Check them out here <> -->
 		<sensor name="laser" type="ray"> 
@@ -29,8 +40,36 @@
             </ray>
             <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
             	<!-- Use topic name as /my_robot/scan -->
-				<topicName></topicName> 
+				<topicName>/car_control/scan</topicName> 
 				<frameName>laser_frame</frameName>
 			</plugin>
 		</sensor>
 	</gazebo>
+
+<!--  Gazebo plugin for control here is already added for you -->
+	<gazebo>
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+			<robotNamespace>/car_control</robotNamespace>
+			<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+			<legacyModeNS>true</legacyModeNS>
+		</plugin>
+	</gazebo>
+
+
+<!-- Create a joint between your robot and sensor -->
+	
+<joint
+    	name="lidar_joint"
+		type="fixed">
+		<origin
+			xyz="0 0 0"
+			rpy="0 0 0"/> 
+		
+    	<parent
+     		link="base_link" />
+    	<child
+      		link="base_laser" />
+  	</joint>
+</robot>	
+
+

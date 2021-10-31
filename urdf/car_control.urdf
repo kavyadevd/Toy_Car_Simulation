@@ -3,7 +3,7 @@
      Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
-  name="toy_car_3">
+  name="car_control">
   <link
     name="base_link">
     <inertial>
@@ -26,7 +26,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://toy_car_3/meshes/base_link.STL" />
+          filename="package://car_control/meshes/base_link.STL" />
       </geometry>
       <material
         name="">
@@ -40,12 +40,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://toy_car_3/meshes/base_link.STL" />
+          filename="package://car_control/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
   <link
-    name="BR_coord">
+    name="BR_wheel">
     <inertial>
       <origin
         xyz="-1.1102E-16 0.047495 -1.4572E-16"
@@ -66,7 +66,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://toy_car_3/meshes/BR_coord.STL" />
+          filename="package://car_control/meshes/BR_wheel.STL" />
       </geometry>
       <material
         name="">
@@ -80,25 +80,27 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://toy_car_3/meshes/BR_coord.STL" />
+          filename="package://car_control/meshes/BR_wheel.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="BR_coord"
-    type="continuous">
+    name="BR_joint"
+    type="revolute">
     <origin
       xyz="-0.20624 -0.3302 -0.14111"
       rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
-      link="BR_coord" />
+      link="BR_wheel" />
     <axis
       xyz="0 1 0" />
     <limit
-      effort="1"
-      velocity="1" />
+      lower="-1000000"
+      upper="1000000"
+      effort="100"
+      velocity="1000" />
   </joint>
   <link
     name="BL_wheel">
@@ -122,7 +124,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://toy_car_3/meshes/BL_wheel.STL" />
+          filename="package://car_control/meshes/BL_wheel.STL" />
       </geometry>
       <material
         name="">
@@ -136,13 +138,13 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://toy_car_3/meshes/BL_wheel.STL" />
+          filename="package://car_control/meshes/BL_wheel.STL" />
       </geometry>
     </collision>
   </link>
   <joint
     name="BL_joint"
-    type="continuous">
+    type="revolute">
     <origin
       xyz="-0.20624 0.3302 -0.14111"
       rpy="0 0 0" />
@@ -153,8 +155,10 @@
     <axis
       xyz="0 1 0" />
     <limit
-      effort="1"
-      velocity="1" />
+      lower="-1000000"
+      upper="1000000"
+      effort="100"
+      velocity="1000" />
   </joint>
   <link
     name="FL_wheel">
@@ -178,7 +182,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://toy_car_3/meshes/FL_wheel.STL" />
+          filename="package://car_control/meshes/FL_wheel.STL" />
       </geometry>
       <material
         name="">
@@ -192,13 +196,13 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://toy_car_3/meshes/FL_wheel.STL" />
+          filename="package://car_control/meshes/FL_wheel.STL" />
       </geometry>
     </collision>
   </link>
   <joint
     name="FL_joint"
-    type="continuous">
+    type="revolute">
     <origin
       xyz="0.30176 0.3302 -0.14111"
       rpy="0 0 0" />
@@ -209,23 +213,25 @@
     <axis
       xyz="0 1 0" />
     <limit
-      effort="1"
-      velocity="1" />
+      lower="-1000000"
+      upper="1000000"
+      effort="100"
+      velocity="1000" />
   </joint>
   <link
     name="FR_wheel">
-   <inertial>
+    <inertial>
       <origin
-        xyz="-1.3878E-17 0.047495 6.9389E-18"
+        xyz="0 0.047495 6.9389E-18"
         rpy="0 0 0" />
       <mass
         value="2.8186" />
       <inertia
         ixx="0.009636"
         ixy="2.8528E-19"
-        ixz="-1.0318E-18"
+        ixz="-2.8528E-19"
         iyy="0.013006"
-        iyz="-1.2618E-19"
+        iyz="-2.6197E-19"
         izz="0.009636" />
     </inertial>
     <visual>
@@ -234,7 +240,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://toy_car_3/meshes/FR_wheel.STL" />
+          filename="package://car_control/meshes/FR_wheel.STL" />
       </geometry>
       <material
         name="">
@@ -248,13 +254,13 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://toy_car_3/meshes/FR_wheel.STL" />
+          filename="package://car_control/meshes/FR_wheel.STL" />
       </geometry>
     </collision>
   </link>
   <joint
     name="FR_joint"
-    type="continuous">
+    type="revolute">
     <origin
       xyz="0.30176 -0.3302 -0.14111"
       rpy="0 0 0" />
@@ -265,13 +271,64 @@
     <axis
       xyz="0 1 0" />
     <limit
-      effort="1"
-      velocity="1" />
+      lower="-1000000"
+      upper="1000000"
+      effort="100"
+      velocity="1000" />
   </joint>
 
+  <gazebo reference="base_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <link name="dummy_link">
+  </link>
+  <joint name="dummy_joint" type="fixed">
+    <parent link="dummy_link"/>
+    <child link="base_link"/>
+  </joint>
 
+  <transmission name="right_front_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FR_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FR_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
 
-<gazebo reference="base_link">
-      <material>Gazebo/Red</material>
-</gazebo>
+  <transmission name="front_left_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FL_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FL_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+
+  <transmission name="back_left_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="BL_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="BL_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+
+  <transmission name="back_right_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="BR_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="BR_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+
 </robot>

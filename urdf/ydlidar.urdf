@@ -1,4 +1,5 @@
-<robot  name="ydlidar">
+<robot
+  name="ydlidar">
   <link
     name="base_laser">
     <inertial>
@@ -21,7 +22,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://toy_car_3/meshes/ydlidar.dae" />
+          filename="package://car_control/meshes/ydlidar.dae" />
       </geometry>
       <material
         name="">
@@ -35,7 +36,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://toy_car_3/meshes/ydlidar.dae" />
+          filename="package://car_control/meshes/ydlidar.dae" />
       </geometry>
     </collision>
   </link>
@@ -61,7 +62,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://toy_car_3/meshes/ydlidar.dae" />
+          filename="package://car_control/meshes/ydlidar.dae" />
       </geometry>
       <material
         name="">
@@ -75,7 +76,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://toy_car_3/meshes/ydlidar.dae" />
+          filename="package://car_control/meshes/ydlidar.dae" />
       </geometry>
     </collision-->
   </link>
