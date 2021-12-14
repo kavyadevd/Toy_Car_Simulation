@@ -10,8 +10,8 @@ A toy car with LIDAR sensor and PID control simulation in a gazebo world with ob
 
 ---
 ## Team members
-1) Aditi Ramadwar
-2) Kavyashree Devadiga
+1) [Aditi Ramadwar](https://github.com/aditiramadwar)
+2) [Kavyashree Devadiga](https://github.com/kavyadevd)
 
 
 
