@@ -6,8 +6,8 @@
     <p>This package contains configuration data, 3D models and launch files
 for car_control robot</p>
   </description>
-  <author>TODO</author>
-  <maintainer email="TODO@email.com" />
+  <author>Kavyashree Devadiga</author>
+  <maintainer email="kavya@umd.edu" />
   <license>BSD</license>
   <buildtool_depend>catkin</buildtool_depend>
   <depend>roslaunch</depend>
